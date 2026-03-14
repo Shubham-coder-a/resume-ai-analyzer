@@ -30,4 +30,5 @@ Watch the demo of the AI Resume Analyzer project here:
 https://drive.google.com/file/d/1eiuCL2t0Mz-Kmvbh7eHB8tEmt-v02CMY/view?usp=drivesdk
 
 Live App:
-https://m5ymxvjaroni7jxccnm4ay.streamlit.app
+[https://m5ymxvjaroni7jxccnm4ay.streamlit.app
+](https://resume-ai-analyzer-m5ymxvjaroni7jxccnm4ay.streamlit.app)
