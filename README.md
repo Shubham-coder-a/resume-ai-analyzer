@@ -23,6 +23,12 @@ Run the application:
 
 streamlit run app.py
 
+## Demo Video
+
+Watch the demo of the AI Resume Analyzer project here:
+
+https://drive.google.com/file/d/1eiuCL2t0Mz-Kmvbh7eHB8tEmt-v02CMY/view?usp=drivesdk
+
 The app will start at:
 
 http://localhost:8501
