@@ -1,32 +1,45 @@
 import streamlit as st
 import pdfplumber
-from resume_parser import extract_skills
-from resume_score import score_resume
+
+skills = [
+"python","java","sql","machine learning",
+"react","javascript","html","css"
+]
 
 st.title("AI Resume Analyzer")
 
-uploaded_file = st.file_uploader("Upload your Resume (PDF)", type=["pdf"])
+uploaded_file = st.file_uploader("Upload your resume (PDF)", type=["pdf"])
 
 def extract_text(file):
     text = ""
     with pdfplumber.open(file) as pdf:
         for page in pdf.pages:
-            text += page.extract_text()
+            if page.extract_text():
+                text += page.extract_text()
     return text
 
+def find_skills(text):
+    found = []
+    for skill in skills:
+        if skill in text.lower():
+            found.append(skill)
+    return found
+
 if uploaded_file is not None:
+
     text = extract_text(uploaded_file)
 
-    skills = extract_skills(text)
-    score = score_resume(text)
+    found_skills = find_skills(text)
 
-    st.subheader("Extracted Skills")
-    st.write(skills)
+    score = len(found_skills)
+
+    st.subheader("Detected Skills")
+    st.write(found_skills)
 
     st.subheader("Resume Score")
-    st.write(score)
+    st.write(f"{score}/10")
 
-    if score < 8:
-        st.warning("Improve your resume with more keywords and strong project descriptions.")
+    if score < 5:
+        st.warning("Your resume needs improvement")
     else:
         st.success("Good resume!")
